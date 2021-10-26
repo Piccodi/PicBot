@@ -6,7 +6,7 @@ import javax.security.auth.login.LoginException;
 public class Bot {
 
     public static void main(String[] args) throws LoginException {
-        JDA jda = JDABuilder.createDefault("OTAxMTA3Mjc4MDA1MDIyNzcw.YXLDjA._Gepnuvz6twFxdZh-gi7iTBxtCw").build();
+        JDA jda = JDABuilder.createDefault("токен").build();
 
         jda.addEventListener(new SendEvent());
     }
