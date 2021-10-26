@@ -2,7 +2,6 @@ package parsers;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -51,7 +50,7 @@ public class ParsePictures {
                 if(i >= num) break;
                 i++;
             }
-            resultURLs.remove(0); //опасные действия в принципе
+            resultURLs.remove(0);
             if (num > elements.size()) resultURLs.remove(resultURLs.size()-1);
 
             if(resultURLs.isEmpty()) resultURLs.add("ничего не найдено!");
