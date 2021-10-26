@@ -8,11 +8,6 @@ import java.util.List;
 
 public class SendEvent extends ListenerAdapter {
 
-    // todo защитить его от ddos(добавив потоки),
-    // todo найти API яндекс ибо вылетает капча (скорее всего оставлю ибо хз как делать)
-    //  возможно надо использовать executors
-
-
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
 
         String mess = event.getMessage().getContentRaw();

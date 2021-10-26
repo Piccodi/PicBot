@@ -12,8 +12,7 @@ import org.jsoup.select.Elements;
 
 public class ParsePictures {
 
-    //private String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36 OPR/79.0.4143.73";
-    private String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 YaBrowser/21.9.1.684 Yowser/2.5 Safari/537.36";
+    private String userAgent = "your user agent";
     private String url;
     private Connection session;
 
@@ -24,7 +23,7 @@ public class ParsePictures {
     public void setUrl(String query) {
 
         String[] q = query.split(" ");
-        StringBuilder part = new StringBuilder("");
+        StringBuilder part = new StringBuilder();
 
         for(int i = 0; i < q.length; i++){
             part.append(q[i]);
@@ -32,8 +31,8 @@ public class ParsePictures {
         }
 
         String u = "https://yandex.ru/images/search?text=";
-        System.out.println(u + part.toString());
-        this.url = u + part.toString();
+        System.out.println(u + part);
+        this.url = u + part;
     }
 
     List<String> resultURLs = new ArrayList<String>();
