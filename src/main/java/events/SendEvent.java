@@ -29,8 +29,6 @@ public class SendEvent extends ListenerAdapter {
                     query = mess.substring(mess.indexOf(" ") + 1, mess.indexOf(";") - 1);
                 else query = mess.substring(mess.indexOf(" ") + 1, mess.indexOf(";"));
 
-                System.out.println(query);
-
                 if(mess.substring(mess.indexOf(";")).length() > 1){
                     String count = mess.substring(mess.indexOf(";") + 2);
                     if(NumberUtils.isDigits(count)) num = Integer.valueOf(count);
@@ -51,15 +49,16 @@ public class SendEvent extends ListenerAdapter {
             for (String url : urls) System.out.println(url);
 
             if(num > 1) {
-                for (int i = 0; i < num; i++) {
+                for (int i = 0; i < num + num; i++) {
                     if(i >= urls.size()){
-                        event.getChannel().sendMessage( "выведено: " + urls.size() + " ").queue();
+                        event.getChannel().sendMessage( "выведено: " + urls.size()/2 + " ").queue();
                         break;
                     }
                     event.getChannel().sendMessage(urls.get(i)).queue();
                 }
             }else{
                 event.getChannel().sendMessage(urls.get(0)).queue();
+                event.getChannel().sendMessage(urls.get(1)).queue();
             }
 
         }

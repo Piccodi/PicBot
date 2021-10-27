@@ -8,12 +8,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-
 public class ParsePictures {
 
-    private String userAgent = "your user agent";
+    private String userAgent = "your user-Agent";
     private String url;
     private Connection session;
+    private List<String> resultURLs = new ArrayList<String>();
 
     public ParsePictures(){
         session = Jsoup.newSession().userAgent(userAgent);
@@ -34,24 +34,22 @@ public class ParsePictures {
         this.url = u + part;
     }
 
-    List<String> resultURLs = new ArrayList<String>();
-
     public List<String> parsing(Integer num){
 
         try{
 
             Document doc = session.newRequest().url(url).get();
-            Elements elements = doc.select("img");
+            Elements elements = doc.select("a[class^=serp-item__link]");
 
             int i = 0;
             for(Element elem: elements){
-                System.out.println(elem.attr("src"));
-                resultURLs.add("https:" + elem.attr("src"));
-                if(i >= num) break;
+                if(i >= num ) break;
+                String elemHref = elem.attr("href");
+                Elements elemPrev = elem.select("img");
+                resultURLs.add("https://yandex.ru" + elemHref);
+                resultURLs.add("https:" + elemPrev.attr("src"));
                 i++;
             }
-            resultURLs.remove(0);
-            if (num > elements.size()) resultURLs.remove(resultURLs.size()-1);
 
             if(resultURLs.isEmpty()) resultURLs.add("ничего не найдено!");
 
@@ -62,4 +60,3 @@ public class ParsePictures {
     }
 
 }
-
