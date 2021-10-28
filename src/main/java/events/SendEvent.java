@@ -30,7 +30,7 @@ public class SendEvent extends ListenerAdapter {
             else {
                 if (mess.contains(";")) {
 
-                    if (mess.substring(mess.indexOf(";") - 1, mess.indexOf(";")).contains(" "))
+                    if (mess.charAt(mess.indexOf(";") - 1) == ' ')
                         query = mess.substring(mess.indexOf(" ") + 1, mess.indexOf(";") - 1);
                     else query = mess.substring(mess.indexOf(" ") + 1, mess.indexOf(";"));
 
