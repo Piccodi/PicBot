@@ -10,13 +10,13 @@ import org.jsoup.select.Elements;
 
 public class ParsePictures {
 
-    private String userAgent = "your user-Agent";
+    private String userAgent = "user-agent";
     private String url;
     private Connection session;
     private List<String> resultURLs = new ArrayList<String>();
 
     public ParsePictures(){
-        session = Jsoup.newSession().userAgent(userAgent);
+        this.session = Jsoup.newSession().userAgent(userAgent);
     }
 
     public void setUrl(String query) {
